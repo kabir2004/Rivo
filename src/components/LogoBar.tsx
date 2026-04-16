@@ -55,7 +55,7 @@ export default function LogoBar() {
             <div className="absolute inset-y-0 right-0 w-24 sm:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
             
             {/* 100% to -50% Scroll System */}
-            <div className="flex w-max animate-marquee hover:[animation-play-state:paused] items-center">
+            <div className="flex w-max animate-marquee items-center">
               {[...companies, ...companies].map((co, i) => (
                 <LogoItem key={`${co.name}-${i}`} company={co} />
               ))}

@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import LogoBar from './components/LogoBar'
+import ScrollProgress from './components/ScrollProgress'
 
 const Product = lazy(() => import('./components/Product'))
 const HowItWorks = lazy(() => import('./components/HowItWorks'))
@@ -16,6 +17,7 @@ const Footer = lazy(() => import('./components/Footer'))
 export default function App() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-foreground selection:text-background pb-12">
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <LogoBar />

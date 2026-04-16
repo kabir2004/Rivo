@@ -47,9 +47,11 @@ export default function Footer() {
       <div className="container pb-8 text-transparent border-transparent">
         <div className="flex flex-col sm:flex-row items-center justify-center text-center mt-6 pt-4 gap-2 sm:gap-3">
           <p className="text-[12px] text-muted-foreground">
-          © {new Date().getFullYear()} RIVO Careers Inc.
+            Copyright {new Date().getFullYear()} RIVO Careers Inc.
           </p>
-          <span className="hidden sm:block text-muted-foreground/30 text-[10px]">•</span>
+          <span className="hidden sm:block text-muted-foreground/30 text-[10px]" aria-hidden>
+            |
+          </span>
           <p className="text-[12px] text-muted-foreground font-arimo tracking-wide">
             Built by students for students.
           </p>

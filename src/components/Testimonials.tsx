@@ -7,32 +7,32 @@ const quotes = [
   {
     text: "The precision of the matching algorithm is incredible. Instead of sending out 200 generic applications, I connected directly with a core product team looking specifically for my UI and research background.",
     name: "Arthur Chen",
-    role: "Product Design · UBC",
+    role: 'Product Design, UBC',
   },
   {
     text: "My structured profile on RIVO completely bypassed the standard HR screen. I dropped the link to a technical recruiter and immediately skipped to the onsite loop.",
     name: "Eleanor Richards",
-    role: "Software Engineering · Waterloo",
+    role: 'Software Engineering, Waterloo',
   },
   {
     text: "The pipeline management is arguably the best feature. It consolidated all my messy spreadsheets into a single, automated workflow that tracks every assessment and final round flawlessly.",
     name: "David Sterling",
-    role: "Business Analytics · McGill",
+    role: 'Business Analytics, McGill',
   },
   {
-    text: "RIVO is the first platform that actually understands how highly competitive recruiting works. Zero noise, zero ghosting—just high-signal matches with firms that are actively scaling.",
+    text: 'RIVO is the first platform that actually understands how highly competitive recruiting works. Zero noise, zero ghosting, just high-signal matches with firms that are actively scaling.',
     name: "Jameson Hayes",
-    role: "Finance · McMaster",
+    role: 'Finance, McMaster',
   },
   {
     text: "I used to spend hours modifying my PDF resume for every single job portal. Sharing my persistent RIVO profile link got me a 4x higher response rate from top-tier employers.",
     name: "Jasmine Lin",
-    role: "Data Science · UofT",
+    role: 'Data Science, UofT',
   },
   {
     text: "The level of clarity this platform gives you over your entire job hunt is unmatched. Knowing exactly what stage my applications are in and when to follow up took all the stress away.",
     name: "Harrison Brooks",
-    role: "Marketing & Growth · Western",
+    role: 'Marketing and Growth, Western',
   },
 ]
 
@@ -63,7 +63,7 @@ export default function Testimonials() {
               className="absolute inset-0 flex flex-col items-center justify-center -mt-6"
             >
               <p className="text-[20px] sm:text-[28px] md:text-[34px] font-medium leading-[1.3] tracking-tight text-foreground mb-10 text-balance px-4">
-                &ldquo;{quotes[active].text}&rdquo;
+                &quot;{quotes[active].text}&quot;
               </p>
               
               <div className="flex items-center gap-3 mt-auto">

@@ -18,7 +18,7 @@ const after = [
 ]
 
 const stats = [
-  { v: '3.4×', label: 'More qualified applicants per role' },
+  { v: '3.4x', label: 'More qualified applicants per role' },
   { v: '68%',  label: 'Land an interview within 30 days' },
   { v: '< 4m', label: 'Time to a complete profile' },
 ]
@@ -77,7 +77,7 @@ export default function WhyRivo() {
         </motion.div>
       </div>
 
-      {/* Stat row — same grid line */}
+      {/* Stat row - same grid line */}
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}

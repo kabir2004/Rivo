@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Dashboard from './Dashboard'
 import { Button } from '@/components/ui/button'
@@ -6,9 +7,21 @@ import { smoothEase } from '@/lib/motion'
 
 export default function Hero() {
   const reduceMotion = useReducedMotion()
+  const sectionRef = useRef<HTMLElement | null>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  })
+
+  const titleY = useTransform(scrollYProgress, [0, 1], [0, -18])
+  const subtitleY = useTransform(scrollYProgress, [0, 1], [0, -12])
+  const ctaY = useTransform(scrollYProgress, [0, 1], [0, -9])
+  const dashboardY = useTransform(scrollYProgress, [0, 1], [0, -24])
+  const dashboardScale = useTransform(scrollYProgress, [0, 1], [1, 0.985])
+  const dashboardOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.9])
 
   return (
-    <section className="container pt-36 pb-24 md:pt-44 md:pb-32 max-w-5xl relative overflow-hidden">
+    <section ref={sectionRef} className="container pt-36 pb-24 md:pt-44 md:pb-32 max-w-5xl relative overflow-hidden">
       <div className="flex flex-col items-center text-center relative z-10 px-4">
         
 
@@ -18,6 +31,7 @@ export default function Hero() {
           initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: smoothEase, delay: 0.05 }}
+          style={reduceMotion ? undefined : { y: titleY }}
           className="w-full max-w-[700px] text-balance text-4xl sm:text-5xl md:text-[54px] font-medium leading-[1.1] tracking-tight mb-6 text-foreground"
         >
           The modern standard for early careers.
@@ -28,6 +42,7 @@ export default function Hero() {
           initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15, ease: smoothEase }}
+          style={reduceMotion ? undefined : { y: subtitleY }}
           className="text-[15px] md:text-[16px] text-muted-foreground/90 max-w-[540px] leading-[1.6] mb-10 text-balance font-normal"
         >
           Discover curated technical roles, build an employer-ready identity, and govern your application lifecycle in one unified platform.
@@ -38,6 +53,7 @@ export default function Hero() {
           initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25, ease: smoothEase }}
+          style={reduceMotion ? undefined : { y: ctaY }}
           className="flex flex-row items-center gap-3 mb-24"
         >
           <Button asChild className="h-9 px-5 text-[13px] font-medium rounded-md bg-foreground text-background hover:bg-foreground/90 transition-all border border-transparent">
@@ -55,6 +71,15 @@ export default function Hero() {
           initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.35, ease: smoothEase }}
+          style={
+            reduceMotion
+              ? undefined
+              : {
+                  y: dashboardY,
+                  scale: dashboardScale,
+                  opacity: dashboardOpacity,
+                }
+          }
           className="w-full max-w-[1040px] mx-auto relative"
           id="product"
         >

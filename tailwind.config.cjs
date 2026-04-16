@@ -1,15 +1,13 @@
-const { fontFamily } = require('tailwindcss/defaultTheme')
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class'],
-  content: ['./index.html', './src/**/*.{ts,tsx}'],
+  content: ['./index.html', './src/**/*.{ts,tsx,js,jsx}'],
   theme: {
     container: {
       center: true,
-      padding: '1.5rem',
+      padding: '2rem',
       screens: {
-        '2xl': '1200px',
+        '2xl': '1400px',
       },
     },
     extend: {
@@ -19,18 +17,6 @@ module.exports = {
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
-        },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
-        },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
-        },
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
@@ -39,43 +25,31 @@ module.exports = {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
         },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
         accent: {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))',
         },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
       },
       borderRadius: {
-        xl: 'calc(var(--radius) + 0.25rem)',
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
       fontFamily: {
-        sans: ['Inter', ...fontFamily.sans],
-        arimo: ['Arimo', ...fontFamily.sans],
-      },
-      letterSpacing: {
-        tighter: '-0.03em',
-        tight: '-0.02em',
-      },
-      keyframes: {
-        accordionDown: {
-          from: { height: 0 },
-          to: { height: 'var(--radix-accordion-content-height)' },
-        },
-        accordionUp: {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: 0 },
-        },
-        marquee: {
-          from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(-50%)' },
-        },
-      },
-      animation: {
-        accordionDown: 'accordionDown 0.2s ease-out',
-        accordionUp: 'accordionUp 0.2s ease-out',
-        marquee: 'marquee 50s linear infinite',
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        arimo: ['Arimo', 'system-ui', 'sans-serif'],
       },
     },
   },
