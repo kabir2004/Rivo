@@ -59,6 +59,7 @@ export default function Navbar() {
                 <a
                   href={l.href}
                   onMouseEnter={() => setHovered(l.label)}
+                  onClick={() => setHovered(null)}
                   className={cn(
                     "relative z-10 px-2.5 sm:px-4 py-2 text-[12px] sm:text-[13px] font-medium transition-colors block rounded-full",
                     hovered === l.label ? "text-foreground" : "text-muted-foreground"

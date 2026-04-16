@@ -1,4 +1,4 @@
-import { useId, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -48,11 +48,37 @@ const CHEVRON_MS = 480
 export default function FAQ() {
   const reduceMotion = useReducedMotion()
   const baseId = useId()
+  const accordionRef = useRef<HTMLUListElement | null>(null)
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   const ease = reduceMotion ? undefined : cssEaseFluid
   const panelDuration = reduceMotion ? 0 : PANEL_MS
   const chevronDuration = reduceMotion ? 0 : CHEVRON_MS
+
+  useEffect(() => {
+    if (openIndex === null) return
+
+    const onPointerDown = (event: PointerEvent) => {
+      const target = event.target as Node | null
+      if (!target) return
+      if (!accordionRef.current?.contains(target)) {
+        setOpenIndex(null)
+      }
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpenIndex(null)
+      }
+    }
+
+    window.addEventListener('pointerdown', onPointerDown)
+    window.addEventListener('keydown', onKeyDown)
+    return () => {
+      window.removeEventListener('pointerdown', onPointerDown)
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [openIndex])
 
   return (
     <section id="faq" className="container py-20 md:py-24">
@@ -67,7 +93,7 @@ export default function FAQ() {
           Frequently asked questions
         </h2>
 
-        <ul className="flex list-none flex-col gap-2.5 p-0 contain-layout">
+        <ul ref={accordionRef} className="flex list-none flex-col gap-2.5 p-0 contain-layout">
           {items.map((item, i) => {
             const isOpen = openIndex === i
             const qId = `${baseId}-q-${i}`

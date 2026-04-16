@@ -5,9 +5,9 @@ export default function ScrollProgress() {
   const reduceMotion = useReducedMotion()
 
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 180,
-    damping: 28,
-    mass: 0.24,
+    stiffness: 120,
+    damping: 26,
+    mass: 0.35,
     restDelta: 0.001,
   })
 
