@@ -6,9 +6,10 @@ import LogoBar from './components/LogoBar'
 const Product = lazy(() => import('./components/Product'))
 const HowItWorks = lazy(() => import('./components/HowItWorks'))
 const Features = lazy(() => import('./components/Features'))
-const Standards = lazy(() => import('./components/Standards'))
-const Signal = lazy(() => import('./components/Signal'))
+const Bento = lazy(() => import('./components/Bento'))
+const Pricing = lazy(() => import('./components/Pricing'))
 const Testimonials = lazy(() => import('./components/Testimonials'))
+const FAQ = lazy(() => import('./components/FAQ'))
 const WaitlistCTA = lazy(() => import('./components/WaitlistCTA'))
 const Footer = lazy(() => import('./components/Footer'))
 
@@ -21,11 +22,12 @@ export default function App() {
       <Suspense fallback={null}>
         <div className="flex flex-col gap-24 md:gap-32 pb-32">
           <Features />
+          <Bento />
           <Product />
           <HowItWorks />
-          <Standards />
-          <Signal />
+          <Pricing />
           <Testimonials />
+          <FAQ />
         </div>
         <WaitlistCTA />
         <Footer />

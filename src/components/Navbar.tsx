@@ -4,10 +4,10 @@ import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 
 const links = [
-  { label: 'Product', href: '#product' },
+  { label: 'Features', href: '#features' },
   { label: 'How it works', href: '#how-it-works' },
-  { label: 'Standards', href: '#standards' },
-  { label: 'Outcomes', href: '#outcomes' },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'FAQ', href: '#faq' },
 ]
 
 export default function Navbar() {
